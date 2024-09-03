@@ -57,7 +57,6 @@
 \AtBeginDocument{
   \@ifpackageloaded{fullpage}{\csm@thesis@error{The 'fullpage' package is incompatible with csm-thesis}}{}
 }
-
 % Construct a custom command for performing operations at the end of the preamble
 \global\let\csm@endpreamblehook\@empty
 \@onlypreamble\CSM@AtEndPreamble
@@ -69,7 +68,7 @@
 % code for both:
 \global\let\orig@begin@document=\document
 \gdef\document{%
-  \endgroup
+  %   \endgroup
   \let\CSM@AtEndPreamble\@firstofone%
   \csm@endpreamblehook%
   \global\let\csm@endpreamblehook\@empty%
