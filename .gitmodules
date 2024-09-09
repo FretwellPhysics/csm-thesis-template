@@ -1,0 +1,4 @@
+[submodule "in/csm-thesis-style"]
+	path = in/csm-thesis-style
+	url = ./
+	branch = main
