@@ -69,13 +69,13 @@
 % code for both:
 \global\let\orig@begin@document=\document
 \gdef\document{%
-	\endgroup
-	\let\CSM@AtEndPreamble\@firstofone%
-	\csm@endpreamblehook%
-	\global\let\csm@endpreamblehook\@empty%
-	\begingroup
-	\orig@begin@document%
-	\let\CSM@AtBeginDocumentLast\@firstofone%
-	\csm@begindocumenthook%
-	\global\let\csm@begindocumenthook\@empty%
+\endgroup
+\let\CSM@AtEndPreamble\@firstofone%
+\csm@endpreamblehook%
+\global\let\csm@endpreamblehook\@empty%
+\begingroup
+\orig@begin@document%
+\let\CSM@AtBeginDocumentLast\@firstofone%
+\csm@begindocumenthook%
+\global\let\csm@begindocumenthook\@empty%
 }

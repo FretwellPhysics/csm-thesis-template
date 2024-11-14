@@ -3,10 +3,10 @@
 
 % <<NOTE:>> Internal command for user-specifed returns (manual trapezoidally-shaped titles)
 \newcommand{\ManualTrapezoidTitle}{
-	\let\@titlecr\\
-	\def\\{\protect\@titlecr}
-	\MakeTextUppercase{\@title}
-	\let\\\@titlecr
+\let\@titlecr\\
+\def\\{\protect\@titlecr}
+\MakeTextUppercase{\@title}
+\let\\\@titlecr
 }
 
 %%%%%%
@@ -37,8 +37,8 @@
 \def\@trapezoid@space{\afterassignment\@trapezoid@space@\let\@tempa= }
 \def\@trapezoid@space@{\trapezoid@char@loop}
 \def\@trapezoid@character#1{%
-% Diagnostic Line:
-%#1%
+	% Diagnostic Line:
+	%#1%
 	\temp@trapezoid@text\expandafter{\the\temp@trapezoid@text#1}
 	\trapezoid@char@loop%
 }
@@ -53,7 +53,7 @@
 	\setbox\temp@trapezoid@box\vbox{\unvbox\temp@trapezoid@box\trap@line@sep\MakeTextUppercase{\auto@trapezoid@title}}%
 	\setlength{\trapezoid@new@width}{\test@line@width}%
 	\advance \trapezoid@new@width by -\@tempwidth%
-		% Test for underflow (this line being less than 1/2 of the last line)
+	% Test for underflow (this line being less than 1/2 of the last line)
 	\ifdim \trapezoid@new@width < 0.5\trapezoid@width@value%
 		\global\let\trapezoid@underflow\@true%
 	\fi%
@@ -62,8 +62,8 @@
 		\global\let\trapezoid@overflow\@true%
 	\fi%
 	\setlength{\test@line@width}{\@tempwidth}%
-% Diagnostic Line:
-%\MakeTextUppercase{\auto@trapezoid@title} \\
+	% Diagnostic Line:
+	%\MakeTextUppercase{\auto@trapezoid@title} \\
 	\protected@edef\auto@trapezoid@title{\the\temp@trapezoid@text}%
 	\stepcounter{titlewidth@cnt}%
 }
@@ -80,8 +80,8 @@
 	\@tempwidth\wd\temp@box%
 	\advance\test@line@width by \@tempwidth%
 	\temp@line@height\ht\temp@box%
-% Diagnostic Line:
-%X{\unhbox\temp@box}Y{\the\test@line@width}Z%
+	% Diagnostic Line:
+	%X{\unhbox\temp@box}Y{\the\test@line@width}Z%
 	% The first line of the title is a special case, this really sets the entire shape so we run through
 	% this entire routine with a different number of words permitted in the title line
 	\ifnum \value{titlewidth@cnt}=0%
@@ -123,8 +123,8 @@
 		\ifdim \trapezoid@width@value > \linewidth \relax%
 			\global\let\trapezoid@overflow\@true%
 		\fi%
-% Diagnostic Line:
-%\MakeTextUppercase{\auto@trapezoid@title} \\
+		% Diagnostic Line:
+		%\MakeTextUppercase{\auto@trapezoid@title} \\
 		\stepcounter{titlewidth@cnt}%
 	\fi%
 }
@@ -178,8 +178,8 @@
 	\divide \@titlewidth@max by 7
 	\divide \@titlewidth@max by \value{titlewidth@lines}
 	\multiply \@titlewidth@max by 2 % Double spaced
-% Output Diagnostic:
-%\the\@titlewidth@max
+	% Output Diagnostic:
+	%\the\@titlewidth@max
 	% Throw in a small amount of flex space
 	\settowidth{\@titlewidth@flex}{flex}
 	\advance \@titlewidth@max by \@titlewidth@flex

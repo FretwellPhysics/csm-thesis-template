@@ -51,14 +51,14 @@
 	\magicsection
 	\addcontentsline{toc}{section}{\protect\texorpdfupper{Dedication}}
 	\begingroup
-		% Set up a vertical space and horizontal centering
-		\vspace*{\fill}
-		\center
+	% Set up a vertical space and horizontal centering
+	\vspace*{\fill}
+	\center
 }{
-		% End horizontal centering and use another vertical space (to give us a vertically centered page)
-		\endcenter
-		\vspace*{\fill}
-		\vspace*{\baselineskip}
+	% End horizontal centering and use another vertical space (to give us a vertically centered page)
+	\endcenter
+	\vspace*{\fill}
+	\vspace*{\baselineskip}
 	\endgroup
 }
 
@@ -153,8 +153,8 @@
 		\fi%
 		\global\let\@bibliography@exists\@true%
 		\begingroup%
-			\csm@internal@bibliography%
-			\latex@bibliography{#1}%
+		\csm@internal@bibliography%
+		\latex@bibliography{#1}%
 		\endgroup%
 	}{}
 }
@@ -359,7 +359,7 @@
 			}
 			\gdef\endlandscape{%
 				\ifx\csm@in@landscape\@true\relax%
-					\orig@end@landscape%
+				\orig@end@landscape%
 				\fi%
 				\global\let\csm@in@landscape=\@false%
 			}
@@ -534,7 +534,7 @@
 		\expandafter\ifnum\value{csm@sideways@depth}=0\relax%
 			\endlandscape%
 		\else%
-			\orig@end@sideways%
+		\orig@end@sideways%
 		\fi%
 	}
 }
@@ -591,13 +591,13 @@
 	\expandafter\let\csname csm@end@#1\expandafter\endcsname\csname end#1\endcsname%
 	\expandafter\gdef\csname #1\endcsname{%
 		\csm@setspace@fix%
-%		\begingroup%
+		%		\begingroup%
 		\csname csm@begin@#1\endcsname%
 	}
 	\expandafter\gdef\csname end#1\endcsname{%
 		\csm@parindent@fix%
 		\csname csm@end@#1\endcsname%
-%		\endgroup%
+		%		\endgroup%
 	}
 }
 \AtBeginDocument{

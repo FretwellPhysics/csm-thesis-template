@@ -140,10 +140,10 @@
 	\expandafter\gdef\expandafter\csm@list@cmpstring@B{#2}%
 	\expandafter\csm@list@strlen\expandafter{\csm@list@cmpstring@A}{csm@list@strlenA}
 	\expandafter\csm@list@strlen\expandafter{\csm@list@cmpstring@B}{csm@list@strlenB}
-% Debug line:
-%\the\value{csm@list@strlenA} \csm@list@cmpstring@A \newline
-% Debug line:
-%\the\value{csm@list@strlenB} \csm@list@cmpstring@B \newline
+	% Debug line:
+	%\the\value{csm@list@strlenA} \csm@list@cmpstring@A \newline
+	% Debug line:
+	%\the\value{csm@list@strlenB} \csm@list@cmpstring@B \newline
 	\expandafter\ifnum\c@csm@list@strlenA<\c@csm@list@strlenB\relax%
 		\setcounter{csm@list@strlen}{\value{csm@list@strlenA}}%
 		\global\let\csm@list@switch=\@true% A is shorter (switch by default)
@@ -156,8 +156,8 @@
 		\ifx\csm@list@search@done\@false\relax%
 			\expandafter\csm@list@getchar\expandafter{\csm@list@cmpstring@A}{csm@list@char@A}{\value{csm@list@k}}
 			\expandafter\csm@list@getchar\expandafter{\csm@list@cmpstring@B}{csm@list@char@B}{\value{csm@list@k}}
-% Debug line:
-%\the\value{csm@list@char@B} \the\value{csm@list@char@A} \newline
+			% Debug line:
+			%\the\value{csm@list@char@B} \the\value{csm@list@char@A} \newline
 			\expandafter\ifnum\c@csm@list@char@B>\c@csm@list@char@A\relax%
 				\global\let\csm@list@switch=\@true%
 				\global\let\csm@list@search@done=\@true%
@@ -175,8 +175,8 @@
 \newcounter{csm@list@tempA}
 \newcounter{csm@list@tempB}
 \gdef\csm@list@alphasort@move#1#2{%
-% Debug Line:
-%Switch \expandafter\csname csm@list@itemkey@\the\value{csm@list@i}@\endcsname with \expandafter\csname csm@list@itemkey@\the\value{csm@list@j}@\endcsname \newline
+	% Debug Line:
+	%Switch \expandafter\csname csm@list@itemkey@\the\value{csm@list@i}@\endcsname with \expandafter\csname csm@list@itemkey@\the\value{csm@list@j}@\endcsname \newline
 	\setcounter{csm@list@tempA}{\value{csm@list@i}}%
 	\setcounter{csm@list@tempB}{\value{csm@list@j}}%
 	\csm@ForLoop[-1]{csm@list@tempB}{\value{csm@list@i}}{\value{csm@list@tempB} > \value{csm@list@j}}{%
@@ -258,26 +258,26 @@
 \newcommand{\listfiguresandtablesname}{List of Figures and Tables}
 \newcounter{csm@tocentry@count}
 \newcommand{\GetTOCEntries}[2]{
-	\setcounter{#2}{0}
-	\makeatletter
-	\begingroup
-		\global\let\csm@save@cr=\\ \gdef\\{}
-		\setcounter{csm@tocentry@count}{0}
-		\global\let\csm@save@contentsline=\contentsline
-		\global\let\csm@save@sellang=\select@language
-		\@ifpackageloaded{hyperref}{
-			\gdef\contentsline##1##2##3##4{\addtocounter{csm@tocentry@count}{1}}
-		}{
-			\gdef\contentsline##1##2##3{\addtocounter{csm@tocentry@count}{1}}
-		}
-		\gdef\select@language##1{} % Put in by babel in LyX
-		\@input{\jobname.#1}
-		\setcounter{#2}{\value{csm@tocentry@count}}
-		\global\let\\=\csm@save@cr
-		\global\let\contentsline=\csm@save@contentsline
-		\global\let\select@language=\csm@save@sellang
-	\endgroup
-	\makeatother
+\setcounter{#2}{0}
+\makeatletter
+\begingroup
+\global\let\csm@save@cr=\\ \gdef\\{}
+\setcounter{csm@tocentry@count}{0}
+\global\let\csm@save@contentsline=\contentsline
+\global\let\csm@save@sellang=\select@language
+\@ifpackageloaded{hyperref}{
+	\gdef\contentsline##1##2##3##4{\addtocounter{csm@tocentry@count}{1}}
+}{
+	\gdef\contentsline##1##2##3{\addtocounter{csm@tocentry@count}{1}}
+}
+\gdef\select@language##1{} % Put in by babel in LyX
+\@input{\jobname.#1}
+\setcounter{#2}{\value{csm@tocentry@count}}
+\global\let\\=\csm@save@cr
+\global\let\contentsline=\csm@save@contentsline
+\global\let\select@language=\csm@save@sellang
+\endgroup
+\makeatother
 }
 \global\let\@LoFaT@exists\@empty
 \newcounter{csm@num@tables}
@@ -332,7 +332,7 @@
 	\ifx\csm@combined@table\@true\relax%
 		\internalsection{\listfiguresandtablesname}%
 		\@mkboth{\MakeUppercase\listfiguresandtablesname}%
-			{\MakeUppercase\listfiguresandtablesname}%
+		{\MakeUppercase\listfiguresandtablesname}%
 		\global\let\csm@toc@hold@list\@true%
 		\csm@toc{lof}{\@false}%
 		\global\let\csm@toc@hold@list\@false%
@@ -349,14 +349,14 @@
 	\global\let\@LoFaT@exists\@true
 	\internalsection{\listfigurename}
 	\@mkboth{\MakeUppercase\listfigurename}
-		{\MakeUppercase\listfigurename}
+	{\MakeUppercase\listfigurename}
 	\csm@toc{lof}{\@false}
 }
 \renewcommand{\listoftables}{
 	\global\let\@LoFaT@exists\@true
 	\internalsection{\listtablename}
 	\@mkboth{\MakeUppercase\listtablename}
-		{\MakeUppercase\listtablename}
+	{\MakeUppercase\listtablename}
 	\csm@toc{lot}{\@false}
 }
 
@@ -374,29 +374,29 @@
 	\else%
 		\vskip \z@ \@plus.2\p@
 		{%
-		\leftskip #2\relax % Standard
-		\rightskip \@tocrmarg plus 1fil % Modified to be ``ragged right'' for the line-wrapping part
-		\parfillskip -\rightskip % Standard
-		\parindent #2\relax\@afterindenttrue
-		\interlinepenalty\@M
-		\leavevmode
-		\@tempdima #3\relax
-		\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
-		\setbox\csm@temp@list@boxA=\hbox{%
-			{#4}\nobreak%
-			% The following code is slightly different from the default ``make filler dots'' code in that it requires a minimimum spacing of twice the dot separation plus a dot, this change keeps the text from butting up against the page number and always showing at least one dot.
-			\setbox0=\csm@fill@dots% Put the filler dots in a box we can measure (TODO: Figure out why this measurement needs a multiplier)
-			\leaders\csm@fill@dots\hskip \dimexpr 1.5\wd0+\hfuzz plus 1.0fill\nobreak%
-			% End of cool ``filler dots'' code
-		}%
-		\setbox\csm@temp@list@boxB=\hbox{%
-			% Special settings for the contents label (page, symbol, or abbreviation)
-			\normalfont \normalcolor%
-			#5%
-		}%
-		\unhbox\csm@temp@list@boxA%
-		\unhbox\csm@temp@list@boxB%
- 		\par}%
+			\leftskip #2\relax % Standard
+			\rightskip \@tocrmarg plus 1fil % Modified to be ``ragged right'' for the line-wrapping part
+			\parfillskip -\rightskip % Standard
+			\parindent #2\relax\@afterindenttrue
+			\interlinepenalty\@M
+			\leavevmode
+			\@tempdima #3\relax
+			\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+			\setbox\csm@temp@list@boxA=\hbox{%
+				{#4}\nobreak%
+				% The following code is slightly different from the default ``make filler dots'' code in that it requires a minimimum spacing of twice the dot separation plus a dot, this change keeps the text from butting up against the page number and always showing at least one dot.
+				\setbox0=\csm@fill@dots% Put the filler dots in a box we can measure (TODO: Figure out why this measurement needs a multiplier)
+				\leaders\csm@fill@dots\hskip \dimexpr 1.5\wd0+\hfuzz plus 1.0fill\nobreak%
+				% End of cool ``filler dots'' code
+			}%
+			\setbox\csm@temp@list@boxB=\hbox{%
+				% Special settings for the contents label (page, symbol, or abbreviation)
+				\normalfont \normalcolor%
+				#5%
+			}%
+			\unhbox\csm@temp@list@boxA%
+			\unhbox\csm@temp@list@boxB%
+			\par}%
 	\fi
 }
 \AtBeginDocument{     \renewcommand*\l@part[2]{\ThesisContentsEntry{0}{0.0em}{4.5em}{#1}{#2}}}
@@ -522,7 +522,7 @@
 	\csm@citeauthor@char@loop #1\csm@citeauthor@char@stop%
 }
 \gdef\csm@citeauthor@eatperiod{%
-	\@ifnextchar.{\@gobble}{}%
+\@ifnextchar.{\@gobble}{}%
 }
 \gdef\csm@citeauthor@donothing{}
 \gdef\csm@citeauthor#1{%
@@ -607,41 +607,41 @@
 
 \global\let\csm@toc@hold@list\@false
 \gdef\csm@toc@#1#2#3{%
-	\begingroup%
-		% Disable hbox warnings inside lists (for people to experiment):
-		% Note: New list style should make these commands irrelevant
-		%\tolerance=1000% Don't allow overfill
-		%\hbadness=10000% Disable overfill warning
-		% Allow citations within captions:
-		\global\let\csm@within@list\@true%
-		\csm@start@cite@eat%
-		\csm@start@formatting@eat%
-		% Store TOC items into a list
-		{\csm@override@contentsline@storelist@on}%
-		% Apply swapping (if applicable):
-		\ifx\@true#3%
-			{\csm@override@contentsline@swapon}%
-		\fi
-		%
-		\@starttoc{#2}%
-		% Turn off swapping:
-		\ifx\@true#3%
-			{\csm@override@contentsline@swapdone}%
-		\fi
-		% Stop storing TOC items in the list:
-		{\csm@override@contentsline@storelist@off}%
-		% Turn off sorting:
-		\ifx\@true#1%
-			{\csm@override@contentsline@storelist@sort}%
-		\fi%
-		% Output the list:
-		\ifx\csm@toc@hold@list\@true\else%
-			{\csm@override@contentsline@storelist@output}%
-		\fi%
-		\csm@end@cite@eat%
-		\csm@end@formatting@eat%
-		\global\let\csm@within@list\@false%
-	\endgroup%
+\begingroup%
+% Disable hbox warnings inside lists (for people to experiment):
+% Note: New list style should make these commands irrelevant
+%\tolerance=1000% Don't allow overfill
+%\hbadness=10000% Disable overfill warning
+% Allow citations within captions:
+\global\let\csm@within@list\@true%
+\csm@start@cite@eat%
+\csm@start@formatting@eat%
+% Store TOC items into a list
+{\csm@override@contentsline@storelist@on}%
+% Apply swapping (if applicable):
+\ifx\@true#3%
+	{\csm@override@contentsline@swapon}%
+\fi
+%
+\@starttoc{#2}%
+% Turn off swapping:
+\ifx\@true#3%
+	{\csm@override@contentsline@swapdone}%
+\fi
+% Stop storing TOC items in the list:
+{\csm@override@contentsline@storelist@off}%
+% Turn off sorting:
+\ifx\@true#1%
+	{\csm@override@contentsline@storelist@sort}%
+\fi%
+% Output the list:
+\ifx\csm@toc@hold@list\@true\else%
+	{\csm@override@contentsline@storelist@output}%
+\fi%
+\csm@end@cite@eat%
+\csm@end@formatting@eat%
+\global\let\csm@within@list\@false%
+\endgroup%
 }
 \gdef\csm@toc{%
 	\@ifstar{\csm@toc@{\@true}}{\csm@toc@{\@false}}%
@@ -668,17 +668,17 @@
 		\global\let\@listofsymbols@exists\@true%
 		\internalsection{#1}%
 		\@mkboth{\MakeUppercase#1}%
-			{\MakeUppercase#1}%
+		{\MakeUppercase#1}%
 	\else%
 		% Throw out some separation if this is the second call
 		\vspace{\baselineskip}%
 	\fi%
 	% Output a ``secondary'' section heading if requested
 	\ifx&#2&\relax%
-		\gdef\@symbol@list@file{los}%
+	\gdef\@symbol@list@file{los}%
 	\else%
-		\noindent{\@subsection@style #2}%
-		\get@symbol@file{#2}%
+	\noindent{\@subsection@style #2}%
+	\get@symbol@file{#2}%
 	\fi%
 	\ifx\csm@sort@symbols\@true\relax%
 		\csm@toc*{\@symbol@list@file}{\csm@listofsymbols@symbolfirst}%
@@ -688,18 +688,18 @@
 }
 \gdef\listofsymbols@internal#1{%
 	\@ifnextchar\bgroup%
-			{\listofsymbols@internal@{#1}}%
-			{\listofsymbols@internal@{#1}{}}%
+	{\listofsymbols@internal@{#1}}%
+	{\listofsymbols@internal@{#1}{}}%
 }
 \gdef\listofsymbols@custom[#1]{\listofsymbols@internal{#1}}
 \gdef\listofsymbols@{
 	\@ifnextchar[%
-		{\listofsymbols@custom}%
-		{\listofsymbols@internal{\listsymbolname}}%
+	{\listofsymbols@custom}%
+	{\listofsymbols@internal{\listsymbolname}}%
 }
 \gdef\listofsymbols{
 	\@ifstar%
-		{\global\let\csm@sort@symbols=\@true\listofsymbols@}{\global\let\csm@sort@symbols=\@false\listofsymbols@}%
+	{\global\let\csm@sort@symbols=\@true\listofsymbols@}{\global\let\csm@sort@symbols=\@false\listofsymbols@}%
 }
 
 % Create a temporary file output for adding symbols, if specified with an optional parameter then create a ``sublist'' symbol file with the full named extension (sans spaces)
@@ -712,8 +712,8 @@
 }
 \gdef\addsymbol{%
 	\@ifnextchar[%
-		{\addsymbol@}%
-		{\addsymbol@@{los}}%
+	{\addsymbol@}%
+	{\addsymbol@@{los}}%
 }
 % When that file is called then dump the list of symbols in the appropriate format
 \newcommand*\l@symbol{\@dottedtocline{1}{0.0em}{0.0em}}
@@ -730,10 +730,10 @@
 \def\listabbrname{List of Abbreviations}
 \global\let\@listofabbreviations@exists\@false
 \gdef\listofabbreviations@{%
- 	\global\let\@listofabbreviations@exists\@true%
- 	\internalsection{\listabbrname}%
- 	\@mkboth{\MakeUppercase\listabbrname}%
- 		{\MakeUppercase\listabbrname}%
+	\global\let\@listofabbreviations@exists\@true%
+	\internalsection{\listabbrname}%
+	\@mkboth{\MakeUppercase\listabbrname}%
+	{\MakeUppercase\listabbrname}%
 	\ifx\csm@sort@abbrv\@true\relax%
 		\csm@toc*{loabbrv}{\@false}%
 	\else%
@@ -742,30 +742,30 @@
 }
 \gdef\listofabbreviations{%
 	\@ifstar%
-		{\global\let\csm@sort@abbrv=\@true\listofabbreviations@}{\global\let\csm@sort@abbrv=\@false\listofabbreviations@}%
+	{\global\let\csm@sort@abbrv=\@true\listofabbreviations@}{\global\let\csm@sort@abbrv=\@false\listofabbreviations@}%
 }
 
 % Create a temporary file output for adding abbreviations
 \gdef\addabbreviation@@@#1#2{%
-		\csm@addtocontents{loabbrv}{abbreviation}{#1}{#2}%
+	\csm@addtocontents{loabbrv}{abbreviation}{#1}{#2}%
 }
 \gdef\addabbreviation@@#1#2{%
-		\expandafter\addabbreviation@@@\expandafter{#2}{#1}%
+	\expandafter\addabbreviation@@@\expandafter{#2}{#1}%
 }
 \gdef\addabbreviation@#1#2{%
-		\protected@edef\csm@abbrv@temp@A{#1}%
-		\protected@edef\csm@abbrv@temp@B{#2}%
-		\expandafter\addabbreviation@@\expandafter{\csm@abbrv@temp@B}{\csm@abbrv@temp@A}%
+	\protected@edef\csm@abbrv@temp@A{#1}%
+	\protected@edef\csm@abbrv@temp@B{#2}%
+	\expandafter\addabbreviation@@\expandafter{\csm@abbrv@temp@B}{\csm@abbrv@temp@A}%
 	\endgroup%
 }
 \begingroup
 \catcode`\-=\active%
 \gdef\addabbreviation#1{%
-	\begingroup%
-		\global\let\csm@orig@dash=-%
-		\catcode`\-=\active%
-		\def-{{\protect\nobreakdashes\protect -}}%
-		\addabbreviation@{#1}%
+\begingroup%
+\global\let\csm@orig@dash=-%
+\catcode`\-=\active%
+\def-{{\protect\nobreakdashes\protect -}}%
+\addabbreviation@{#1}%
 }
 \endgroup
 

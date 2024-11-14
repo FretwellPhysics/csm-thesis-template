@@ -48,8 +48,8 @@
 %% Define the list of expected citation styles (in case multibib isn't used)
 \CSM@AtEndPreamble{%
 	\@ifundefined{@mb@citenamelist}%
-		{\def\@mb@citenamelist{cite,citep,citet,citealp,citealt}}%
-		{\relax}%
+	{\def\@mb@citenamelist{cite,citep,citet,citealp,citealt}}%
+	{\relax}%
 }
 
 %% Detect when bibliographies are being used for each chapter, make them compatible, and demote them to subsections
@@ -87,8 +87,8 @@
 	\global\let\citation\@bt@orig@citation%
 	\global\let\bibliographystyle\@orig@bibliographystyle%
 	\global\let\bibitem\bt@saveitem%
-    \global\let\thebibliography\bt@savebib%
-    \global\let\endthebibliography\bt@endsavebib%
+	\global\let\thebibliography\bt@savebib%
+	\global\let\endthebibliography\bt@endsavebib%
 	\usepackage[resetlabels]{multibib}%
 	\newcounter{csm@multibib@i}%
 	\global\let\csm@hack@newcites\newcites
@@ -171,7 +171,7 @@
 % alternative:
 % \@input each aux file in the main aux file
 \gdef\csm@bibtopic@override@@#1{%
-%#1\space% diagnostic
+	%#1\space% diagnostic
 	\expandafter\csm@citehack@setcommand{#1}%
 	\expandafter\gdef\csname csm@citehack@#1\endcsname{%
 		\ifx\csm@citehack@frontmatter\@true\relax%
@@ -179,7 +179,7 @@
 		\else%
 			\ifx\csm@citehack@on\@true\relax%
 				\expandafter\csm@citehack@getcommand@{#1}%
-%#1\space% diagnostic
+				%#1\space% diagnostic
 			\else%
 				\global\let\csm@citehack@on\@true%
 				\expandafter\csm@citehack@getcommand{#1}%
@@ -188,7 +188,7 @@
 	}%
 	%\expandafter\gdef\csname csm@citehack@new@#1@\endcsname{%
 	\expandafter\gdef\csname #1\endcsname{%
-%#1\space% diagnostic
+		%#1\space% diagnostic
 		\csm@citehack@getcommand{#1}%
 		\expandafter\protect\csname csm@citehack@#1\endcsname% this command will not be processed for captions (very important)
 		\csm@citehack@magic%
@@ -217,15 +217,15 @@
 			%\expandafter\csm@orig@bibliographystyle{\csm@bibliographystyle}%
 			%\csm@bibliographystyle%
 		\fi%
-			%\expandafter\csm@orig@bibliographystyle{unsrtnat}%
+		%\expandafter\csm@orig@bibliographystyle{unsrtnat}%
 		\csm@orig@btSect%
 	}
 	\renewcommand{\btPrintCited}{%
 		\begingroup%
-			\csm@internal@bibliography%
-			\csm@internal@bibliography@%
-			\csm@internal@bibliography@@@%
-			\csm@orig@btPrintCited%
+		\csm@internal@bibliography%
+		\csm@internal@bibliography@%
+		\csm@internal@bibliography@@@%
+		\csm@orig@btPrintCited%
 		\endgroup%
 	}
 	\global\let\csm@bibtopic@within@chapter=\@false%

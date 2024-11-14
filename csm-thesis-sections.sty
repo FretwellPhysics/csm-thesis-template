@@ -24,23 +24,23 @@
 	\@tempskipa #5\relax
 	\ifdim \@tempskipa>\z@
 		\begin{center}
-		\begingroup
+			\begingroup
 			#6{%
 				\ifx\csm@section@bold\@true\relax%
 					\bfseries%
 					\global\let\csm@section@bold=\@false%
 				\fi%
 				\@hangfrom{\hskip #3\relax\@svsec}%
-					\interlinepenalty \@M \MakeTextUppercase{#8} \@@par}%
-		\endgroup
+				\interlinepenalty \@M \MakeTextUppercase{#8} \@@par}%
+			\endgroup
 		\end{center}
 		\csname #1mark\endcsname{#7}%
 	\else
 		\def\@svsechd{%
 			#6{\hskip #3\relax
-			\@svsec #8}%
+					\@svsec #8}%
 			\csname #1mark\endcsname{#7}%
-			}%
+		}%
 	\fi
 	\@xsect{#5}}
 \def\@scenteredsect#1#2#3#4#5{%
@@ -64,16 +64,16 @@
 \def\@startcenteredsection#1#2#3#4#5#6{%
 	%% For placing the section exactly one line down:
 	\begingroup
-		\nobreak
-		\vspace*{0pt}
-		% For lining up exactly with the top when using vspace:
-		%\vspace*{-\topskip}
-		%\vspace{0pt}
-		%\global\let\old@stretch\baselinestretch
-		%\setstretch{1}
-		%\vspace{-\baselineskip}
-		%\setstretch{\old@stretch}%
-		\nointerlineskip
+	\nobreak
+	\vspace*{0pt}
+	% For lining up exactly with the top when using vspace:
+	%\vspace*{-\topskip}
+	%\vspace{0pt}
+	%\global\let\old@stretch\baselinestretch
+	%\setstretch{1}
+	%\vspace{-\baselineskip}
+	%\setstretch{\old@stretch}%
+	\nointerlineskip
 	\endgroup
 	%%
 	\if@noskipsec \leavevmode \fi
@@ -89,8 +89,8 @@
 		\addpenalty\@secpenalty\addvspace\@tempskipa
 	\fi
 	\@ifstar
-		{\@scenteredsect{#3}{#4}{#5}{#6}}%
-		{\@dblarg{\@centeredsect{#1}{#2}{#3}{#4}{#5}{#6}}}}
+	{\@scenteredsect{#3}{#4}{#5}{#6}}%
+	{\@dblarg{\@centeredsect{#1}{#2}{#3}{#4}{#5}{#6}}}}
 % Be careful with the \section command or you will break amsmath compatibility:
 \AtBeginDocument{
 	\ifx \csm@thesis@chapterbold\@true \relax%
@@ -99,13 +99,13 @@
 		\global\let\csm@sectionfontstyle\normalfont%
 	\fi
 	\renewcommand\section{
-		\if\@chapter@call\=\@empty
-			\csm@thesis@error{You may not call \noexpand\section directly, you must use \noexpand\chapter instead.}
-		\fi
-		\@startcenteredsection{section}{1}{\z@}%
-		{-3.5ex \@plus -1ex \@minus -.2ex}%
-		{2.3ex \@plus.2ex}%
-		{\csm@sectionfontstyle}}
+	  \if\@chapter@call\=\@empty
+		  \csm@thesis@error{You may not call \noexpand\section directly, you must use \noexpand\chapter instead.}
+	  \fi
+	  \@startcenteredsection{section}{1}{\z@}%
+	  {-3.5ex \@plus -1ex \@minus -.2ex}%
+	  {2.3ex \@plus.2ex}%
+	  {\csm@sectionfontstyle}}
 }
 
 % At least one paragraph of text must follow each heading or subheading. Headings and subheadings may not follow each other without some text between, and may not stand alone at the bottom of a page.
@@ -200,16 +200,16 @@
 	\vspace{-\baselineskip}
 	\ifx \csm@thesis@chapterbold\@true \relax%
 		\begin{center}
-	    {\bfseries\MakeTextUppercase{#2}}%
-	    \end{center}
+			{\bfseries\MakeTextUppercase{#2}}%
+		\end{center}
 	\else%
 		\begin{center}
-	    \MakeTextUppercase{#2}%
-	    \end{center}
+			\MakeTextUppercase{#2}%
+		\end{center}
 	\fi
 	\expandafter
 	\ifx r#1 \addcontentsline{toc}{chapter}{\protect\texorpdfupper{\protect\numberline{Chapter \thesection}#2}}\else
-	\addcontentsline{toc}{chapter}{\protect\texorpdfupper{\protect\numberline{Chapter \thesection}#1}}
+		\addcontentsline{toc}{chapter}{\protect\texorpdfupper{\protect\numberline{Chapter \thesection}#1}}
 	\fi
 	%
 	\reset@csm@section@check%
@@ -307,8 +307,8 @@
 \AtBeginDocument{
 	\gdef\appendix{%
 		\@ifnextchar\bgroup%
-			{\csm@appendix}%
-			{\global\let\chapter=\csm@appendix}%
+		{\csm@appendix}%
+		{\global\let\chapter=\csm@appendix}%
 	}
 }
 \AtEndDocument{
