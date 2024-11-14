@@ -62,8 +62,12 @@
 % ---------------------
 %  LaTeX eqantion mode
 % ---------------------
-\newcommand{\eqnNum}[2]{\begin{equation} {#1} \label{#2} \end{equation}}
-\newcommand{\eqnNN}[1]{\begin{equation*} {#1}\end{equation*}}
+\newcommand{\eqnNum}[2]{
+  \begin{equation} {#1} \label{#2}
+\end{equation}}
+\newcommand{\eqnNN}[1]{
+  \begin{equation*} {#1}
+\end{equation*}}
 
 \newcommand{\diffEqn}[1]{d_t{#1}=\mathcal{D}\,\nabla{#1}}
 
