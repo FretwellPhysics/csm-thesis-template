@@ -1,0 +1,109 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../../../../Downloads/Arc-Personal/Thesis Template 5"
+		}
+	],
+	"settings": {
+		"window.title": "${rootNameShort}${separator}${profileName}${separator}${activeRepositoryBranchName}${separator}${dirty}",
+		"[latex]": {
+			"editor.defaultFormatter": "James-Yu.latex-workshop"
+		},
+		"latex-workshop.texcount.path": "",
+		"latex-utilities.countWord.path": "/Users/coesite/Dropbox/0-Meta/5-Content/1_Self/Apps-Universal/VSCode/texcount.pl",
+		"[tex]": {
+			"editor.defaultFormatter": "James-Yu.latex-workshop"
+		},
+		"latex-workshop.latex.recipes": [
+			{
+				"name": "latexmk (pdftex)",
+				"tools": [
+					"pdftexmk"
+				]
+			},
+		],
+		"latex-workshop.latex.tools": [
+			{
+				"name": "pdftexmk",
+				"command": "latexmk",
+				"args": [
+					"-synctex=1",
+					"-interaction=nonstopmode",
+					"-file-line-error",
+					"-outdir=%OUTDIR%",
+					"%DOC%",
+					"-pdf"
+				],
+				"env": {
+					"TEXINPUTS": "%WORKSPACE_FOLDER%/in/csm-thesis-template//:%WORKSPACE_FOLDER%/code//:"
+				}
+			},
+		],
+		"latex-utilities.texdef.enabled": true,
+		"latex-utilities.countWord.args": [],
+		"latex-workshop.latex.recipe.default": "lastUsed",
+		"latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/out/%DOCFILE%",
+		"latex-workshop.view.pdf.viewer": "tab",
+		"latex-workshop.latex.autoBuild.run": "onFileChange",
+		"latex-workshop.latex.clean.fileTypes": [
+			"%DOCFILE%.aux",
+			"%DOCFILE%.bbl",
+			"%DOCFILE%.blg",
+			"%DOCFILE%.idx",
+			"%DOCFILE%.ind",
+			"%DOCFILE%.lof",
+			"%DOCFILE%.lot",
+			"%DOCFILE%.out",
+			"%DOCFILE%.toc",
+			"%DOCFILE%.acn",
+			"%DOCFILE%.acr",
+			"%DOCFILE%.alg",
+			"%DOCFILE%.glg",
+			"%DOCFILE%.glo",
+			"%DOCFILE%.gls",
+			"%DOCFILE%.fls",
+			"%DOCFILE%.log",
+			"%DOCFILE%.fdb_latexmk",
+			"%DOCFILE%.snm",
+			"%DOCFILE%.synctex(busy)",
+			"%DOCFILE%.synctex.gz(busy)",
+			"%DOCFILE%.nav",
+			"%DOCFILE%.vrb",
+			"%DOCFILE%.xdv",
+			"%DOCFILE%.bbl",
+			"%DOCFILE%.dep",
+			"%DOCFILE%.synctex.gz",
+		],
+		"latex-workshop.intellisense.file.exclude": [
+			"**/*.aux",
+			"**/*.bbl",
+			"**/*.bcf",
+			"**/*.blg",
+			"**/*.idx",
+			"**/*.ind",
+			"**/*.lof",
+			"**/*.lot",
+			"**/*.out",
+			"**/*.toc",
+			"**/*.acn",
+			"**/*.acr",
+			"**/*.alg",
+			"**/*.glg",
+			"**/*.glo",
+			"**/*.gls",
+			"**/*.ist",
+			"**/*.fls",
+			"**/*.log",
+			"**/*.nav",
+			"**/*.snm",
+			"**/*.fdb_latexmk",
+			"**/*.synctex.gz",
+			"**/*.run.xml",
+			"**/*.xdv"
+		],
+		"latex-workshop.formatting.latex": "tex-fmt",
+	}
+}
